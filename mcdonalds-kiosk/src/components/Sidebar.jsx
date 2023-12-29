@@ -18,22 +18,27 @@ function Sidebar() {
                 </li>
                 <li>
                     <a href="/" className="nav-link text-white">
-                        Dashboard
+                        Burgers
                     </a>
                 </li>
                 <li>
                     <a href="/" className="nav-link text-white">
-                        Orders
+                        Wraps
                     </a>
                 </li>
                 <li>
                     <a href="/" className="nav-link text-white">
-                        Products
+                        Fries
                     </a>
                 </li>
                 <li>
                     <a href="/" className="nav-link text-white">
-                        Customers
+                        Deserts
+                    </a>
+                </li>
+                <li>
+                    <a href="/cart" className="nav-link text-white">
+                        Cart
                     </a>
                 </li>
             </ul>
