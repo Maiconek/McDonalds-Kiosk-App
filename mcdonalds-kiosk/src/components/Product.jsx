@@ -2,7 +2,7 @@ import React from "react";
 
 function Product(props) {
     return (
-        <div className="card w-20 me-3 mb-3">
+        <div className="card w-20 me-3 mh-50 mb-3">
                 <img src={props.image} className="card-img-top" alt="product" />
                 <div className="card-body">
                     <h5 className="card-title">{props.name}</h5>

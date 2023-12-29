@@ -1,8 +1,8 @@
 import React from "react";
 
-function Sidebar() {
+function Sidebar({handleFilter}) {
     return (
-        <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-orange">
+        <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-green">
             <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-0 md-auto text-white text-decoration-none">
                 <img className="bi" width="60" height="52" 
                 src="https://www.freepnglogos.com/uploads/mcdonalds-png-logo/mcdonalds-png-logo-simple-m-1.png"
@@ -17,24 +17,24 @@ function Sidebar() {
                     </a>
                 </li>
                 <li>
-                    <a href="/" className="nav-link text-white">
+                    <button className="nav-link text-white" onClick={() => handleFilter("burger")}>
                         Burgers
-                    </a>
+                    </button>
                 </li>
                 <li>
-                    <a href="/" className="nav-link text-white">
+                    <button className="nav-link text-white" onClick={() => handleFilter("wrap")}>
                         Wraps
-                    </a>
+                    </button>
                 </li>
                 <li>
-                    <a href="/" className="nav-link text-white">
+                    <button className="nav-link text-white" onClick={() => handleFilter("fries")}>
                         Fries
-                    </a>
+                    </button>
                 </li>
                 <li>
-                    <a href="/" className="nav-link text-white">
-                        Deserts
-                    </a>
+                    <button className="nav-link text-white" onClick={() => handleFilter("deser")}>
+                        Desserts
+                    </button>
                 </li>
                 <li>
                     <a href="/cart" className="nav-link text-white">
