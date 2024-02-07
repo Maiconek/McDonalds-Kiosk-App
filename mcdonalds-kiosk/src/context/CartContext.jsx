@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useMemo } from "react";
 import React from "react";
 
 export const CartContext = createContext()
@@ -16,8 +16,13 @@ export default function CartProvider({ children }) {
         setCartItems(newItems)
     } 
 
+    const sumOfItems = useMemo(() => {
+        const totalSum = cartItems.reduce((sum, item) => sum + parseFloat(item.price), 0);
+        return totalSum
+      }, [cartItems]);
+
     return (
-        <CartContext.Provider value={{ cartItems, addItemToCart, deleteItem }}>
+        <CartContext.Provider value={{ cartItems, addItemToCart, deleteItem, sumOfItems }}>
             {children}
         </CartContext.Provider>
     );
