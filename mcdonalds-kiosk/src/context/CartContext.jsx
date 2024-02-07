@@ -10,8 +10,14 @@ export default function CartProvider({ children }) {
         setCartItems(prevItems => [...prevItems, item])
     }
 
+    const deleteItem = (item) => {
+        const newItems = [...cartItems]
+        newItems.splice(item, 1)
+        setCartItems(newItems)
+    } 
+
     return (
-        <CartContext.Provider value={{ cartItems, addItemToCart }}>
+        <CartContext.Provider value={{ cartItems, addItemToCart, deleteItem }}>
             {children}
         </CartContext.Provider>
     );

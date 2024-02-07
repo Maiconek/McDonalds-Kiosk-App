@@ -9,6 +9,8 @@ import { Route, Routes, BrowserRouter } from "react-router-dom"
 
 function App() {
   const {cartItems} = useContext(CartContext)
+
+  
   return (
     <BrowserRouter>
       <Routes>
