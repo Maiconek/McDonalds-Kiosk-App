@@ -13,7 +13,7 @@ function Cart({props}) {
                     id={item.name} 
                     key={item.name} 
                     name={item.name}
-                    image={item.link} 
+                    image={item.image} 
                     description={item.description}
                     price={item.price}
                 /> 

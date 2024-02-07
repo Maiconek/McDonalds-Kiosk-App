@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar({handleFilter}) {
+    useEffect(() => {
+        console.log(cartItems.length)
+    })
+    const {cartItems} = useContext(CartContext)
     return (
         <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-green">
             <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-0 md-auto text-white text-decoration-none">
@@ -12,9 +19,14 @@ function Sidebar({handleFilter}) {
             <hr></hr>
             <ul className="nav nav-pills flex-column mb-auto p-10">
                 <li className="nav-item">
-                    <a href="/" className="nav-link text-white" aria-current="page">
+                    <Link to={{
+                        pathname: "/", 
+                        state: cartItems}}  
+                        className="nav-link text-white" 
+                        aria-current="page" 
+                        onClick={() => handleFilter("")}>
                         Home
-                    </a>
+                    </Link>
                 </li>
                 <li>
                     <button className="nav-link text-white" onClick={() => handleFilter("burger")}>
@@ -37,9 +49,9 @@ function Sidebar({handleFilter}) {
                     </button>
                 </li>
                 <li>
-                    <a href="/cart" className="nav-link text-white">
-                        Cart
-                    </a>
+                    <Link to={{pathname: "/cart", state: cartItems}}  className="nav-link text-white">
+                        Cart ({cartItems.length})
+                    </Link>
                 </li>
             </ul>
         </div>

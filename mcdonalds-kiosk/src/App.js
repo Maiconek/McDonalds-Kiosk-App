@@ -1,26 +1,22 @@
-import React, { useState } from "react";
-import ProductsList from "./components/ProductsList";
-import Sidebar from "./components/Sidebar";
+import React from "react";
+import Menu from "./components/Menu";
+import Cart from "./components/Cart";
+import { CartContext } from './context/CartContext';
+import { useContext } from 'react';
 
-import products from "./data/data";
+import { Route, Routes, BrowserRouter } from "react-router-dom"
+
 
 function App() {
-  const [filter, setFilter] = useState(null);
-
-  const handleFilter = (type) => {
-      setFilter(type);
-  };
-
-  const filteredProducts = filter
-      ? products.filter((product) => product.category === filter)
-      : products;
-
+  const {cartItems} = useContext(CartContext)
   return (
-    <main>
-      <Sidebar handleFilter={handleFilter}/>
-      <ProductsList props={filteredProducts} />
-    </main>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Menu />} />
+        <Route path="/cart" element={<Cart props={cartItems} />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;
