@@ -21,8 +21,12 @@ export default function CartProvider({ children }) {
         return totalSum
       }, [cartItems]);
 
+    const clearCart = () => {
+        setCartItems([])
+    }  
+
     return (
-        <CartContext.Provider value={{ cartItems, addItemToCart, deleteItem, sumOfItems }}>
+        <CartContext.Provider value={{ cartItems, addItemToCart, deleteItem, sumOfItems, clearCart }}>
             {children}
         </CartContext.Provider>
     );

@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import Sidebar from "./Sidebar";
 import CartProduct from "./CartProduct";
 import { CartContext } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 function Cart({props}) {
    
@@ -9,11 +10,11 @@ function Cart({props}) {
     console.log(props)
    })
 
-   const {sumOfItems} = useContext(CartContext)
+   const {sumOfItems, clearCart} = useContext(CartContext)
 
    return (
     <main>
-        <Sidebar />
+        <Sidebar handleFilter={() => {}}/>
         <div className="container-fluid d-flex flex-column align-items-center flex-wrap p-5 ms-5">
             <h1 className="mb-5">Twój koszyk</h1>
             {props.map((item, index) => (
@@ -27,6 +28,9 @@ function Cart({props}) {
                 /> 
             ))}
             <p>Suma: {sumOfItems.toFixed(2)} zł</p>
+            <Link to="/finished">
+                <button type="button" className="btn btn-success" onClick={() => clearCart()}>Złoż zamówienie</button>
+            </Link>
         </div>
     </main>
    ) 
