@@ -10,13 +10,13 @@ function Cart({props}) {
     console.log(props)
    })
 
-   const {sumOfItems, clearCart} = useContext(CartContext)
+   const {cartItems, sumOfItems, clearCart} = useContext(CartContext)
 
    return (
     <main>
         <Sidebar handleFilter={() => {}}/>
         <div className="container-fluid d-flex flex-column align-items-center flex-wrap p-5 ms-5">
-            <h1 className="mb-5">Twój koszyk</h1>
+            <h1 className="mb-5">Koszyk</h1>
             {props.map((item, index) => (
                 <CartProduct 
                     id={index} 
@@ -27,7 +27,10 @@ function Cart({props}) {
                     price={item.price}
                 /> 
             ))}
-            <p>Suma: {sumOfItems.toFixed(2)} zł</p>
+            {cartItems.length === 0 &&
+                <p>Twój koszyk jest pusty</p>
+            }
+            <p>Cena zamówienia: {sumOfItems.toFixed(2)} zł</p>
             <Link to="/finished">
                 <button type="button" className="btn btn-success" onClick={() => clearCart()}>Złoż zamówienie</button>
             </Link>

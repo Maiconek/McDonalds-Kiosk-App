@@ -25,32 +25,32 @@ function Sidebar({handleFilter}) {
                         className="nav-link text-white" 
                         aria-current="page" 
                         onClick={() => handleFilter("")}>
-                        Home
+                        Strona główna
                     </Link>
                 </li>
                 <li>
                     <button className="nav-link text-white" onClick={() => handleFilter("burger")}>
-                        Burgers
+                        Burgery
                     </button>
                 </li>
                 <li>
                     <button className="nav-link text-white" onClick={() => handleFilter("wrap")}>
-                        Wraps
+                        Wrapy
                     </button>
                 </li>
                 <li>
                     <button className="nav-link text-white" onClick={() => handleFilter("fries")}>
-                        Fries
+                        Frytki
                     </button>
                 </li>
                 <li>
                     <button className="nav-link text-white" onClick={() => handleFilter("deser")}>
-                        Desserts
+                        Desery
                     </button>
                 </li>
                 <li>
                     <Link to={{pathname: "/cart", state: cartItems}}  className="nav-link text-white">
-                        Cart ({cartItems.length})
+                        Koszyk ({cartItems.length})
                     </Link>
                 </li>
             </ul>
