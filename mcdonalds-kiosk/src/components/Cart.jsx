@@ -31,9 +31,14 @@ function Cart({props}) {
                 <p>Twój koszyk jest pusty</p>
             }
             <p>Cena zamówienia: {sumOfItems.toFixed(2)} zł</p>
-            <Link to="/finished">
-                <button type="button" className="btn btn-success" onClick={() => clearCart()}>Złoż zamówienie</button>
-            </Link>
+            <div class="row">
+                <div class="col">
+                    <Link to="/finished">
+                        <button type="button" className="btn btn-success me-2" onClick={() => clearCart()}>Złoż zamówienie</button>
+                    </Link>
+                    <button type="button" className="btn btn-danger" onClick={() => clearCart()}>Wyczyść koszyk</button>
+            </div>
+            </div>
         </div>
     </main>
    ) 
